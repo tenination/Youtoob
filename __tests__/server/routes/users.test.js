@@ -53,7 +53,7 @@ afterAll((done) => {
  *
  * 1. Make a post request to the register endpoint, passing in testUser as the post body.
  * 2. The api is going to return us a response object, we want to extract the data out of it,
- *    so invoke api.extractData to get the date out of the response object.
+ *    so invoke api.extractData to get the data out of the response object.
  * 3. Assert that the resolved value has the shape of what user.toAuthJSON() returns.
  *    Have a look at `server/models/user.js`.
  * 4. Query the User model using the testUser.username and assert that the result is defined.
@@ -61,8 +61,34 @@ afterAll((done) => {
  */
 
 test('Register endpoint should create a user', (done) => {
-  done()
-})
+  var user = new User(testUser)
+  
+    apiInstance.post('/register', testUser)
+      .then(api.extractData)
+      .then((newUser) => {
+        expect(newUser).toEqual({
+          _id: expect.any(String),
+          username: testUser.username,
+          token: expect.stringMatching(JWT_REGEX)
+        })
+        done();
+      })
+
+    
+  })
+
+// test('register endpoint should create a user', () => {
+//   return api.instance().post('/register', testUser)
+//     .then(api.extractData)
+//     .then((newUser) => {
+//       expect(newUser).toEqual({
+//         _id: expect.any(String),
+//         username: testUser.username,
+//         token: expect.stringMatching(JWT_REGEX)
+//       })
+//     })
+// })
+
 
 test('Login endpoint should login a user', (done) => {
   var user = new User(testUser)

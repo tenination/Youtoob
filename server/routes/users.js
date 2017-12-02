@@ -31,6 +31,7 @@ const register = (req, res) => {
     if (err)
       res.status(400).send(err.errors)
     else 
+      console.log('User.register passed in callback invoked, no error');
       res.json(newUser.toAuthJSON())
   })
 }

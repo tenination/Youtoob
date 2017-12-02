@@ -77,10 +77,13 @@ User.authenticate = function(user, callback) {
 }
 
 User.register = function(user, callback) {
+  console.log('User.register gets in the following user ', user);
   bcrypt.hash(user.password, 12, function(err, hash) {
     if (err) {
+      console.log('ERROR IN BCRYPTING****************');
       callback(err)
     } else {
+      console.log('successfully hashed password!', hash);
       user.password = hash
       user.save(callback)
     }
