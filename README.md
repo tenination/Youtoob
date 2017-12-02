@@ -76,8 +76,8 @@ complicate things and get in the way.*
 ## Bare Minimum Requirements:
     
 ### Unit Testing
-- [ ] Open `__tests__/utils/queryStringToObject.test.js`, read the instructions and write some tests!
-- [ ] Open `__tests__/server/models/video.test.js`, read the instructions and write some tests!
+- [X] Open `__tests__/utils/qu eryStringToObject.test.js`, read the instructions and write some tests!
+- [X] Open `__tests__/server/models/video.test.js`, read the instructions and write some tests!
 - [ ] Open `__tests__/utils/api.test.js`, read the instructions and write some tests!
     
 ### Integration Testing

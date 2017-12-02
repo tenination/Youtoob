@@ -17,7 +17,24 @@ test('can create an empty video', () => {
  * - Implement the function `watch` in `server/models/video.js`
  *
  * Test for these cases:
- * 1. Expect watch to be a function.
- * 2. Expect viewCount to be incremented by 1 after invoking watch.
- * 3. Expect the function to return an instance of itself.
+ * 1. Expect watch to be a function. DONE
+ * 2. Expect viewCount to be incremented by 1 after invoking watch. DONE
+ * 3. Expect the function to return an instance of itself.  DONE
  */
+
+ test('typeof watch should be function', () => {
+ 	const video = new Video();
+  expect(typeof video.watch).toEqual('function');
+});
+
+ test('expect viewCount to be incremented by 1 after invoking watch', () => {
+ 	const video = new Video();
+  expect(video.viewCount).toEqual(0);
+  video.watch();
+  expect(video.viewCount).toEqual(1);
+});
+
+ test('expect the function to return an instance of itself', () => {
+ 	const video = new Video();
+  expect(video.watch()).toEqual(video);
+});

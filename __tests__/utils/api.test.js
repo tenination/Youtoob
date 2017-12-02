@@ -71,8 +71,29 @@ test('simulate register function', () => {
 })
 
 test('simulate successful login', () => {
+  // Mock response to http://localhost:3000/api/login
+  let loginEndpoint = nock(host)
+    .post('/api/login')
+    .reply(200, testUser);
+
+  return api.login(testUser).then((newUser) => {
+    loginEndpoint.done() // (1.✓) Request to the endpoint is made!
+    expect(newUser).toEqual(testUser) // (2.✓) Resolve value is equal to testUser
+    expect(localStorage.getItem('user')).toEqual(JSON.stringify(testUser)) // (3.✓) user is saved to localStorage
+  })
+
 })
 
-test('simulate failed login', () => {
-})
+// test('simulate failed login', () => {
+//   let loginEndpoint = nock(host)
+//     .post('/api/login')
+//     .reply(200, testUser);
+
+//   return api.login().then((newUser) => {
+//     loginEndpoint.done() // (1.✓) Request to the endpoint is made!
+//     expect(localStorage.getItem('user')).toEqual(JSON.stringify(undefined)) // (3.✓) user is saved to localStorage
+//   }).catch((err)=>{
+//     console.log(err);
+//   });
+// })
 

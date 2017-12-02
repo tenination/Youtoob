@@ -39,7 +39,9 @@ VideoSchema.methods.watch = function() {
   /********************** Steps to pass the test: **********************/
   // this context refers to the instance of the class
   // increment the viewCount of the instance
+  this.viewCount++;
   // return this 
+  return this;
 }
 
 var Video = mongoose.model('Video', VideoSchema)
