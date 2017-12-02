@@ -8,9 +8,9 @@ import ViewCount from '../../../client/components/ViewCount'
  * 
  * To pass the prompt:
  *
- * 1. Create the variable viewCount that will be passed down to the component as a prop
+ * 1. Create the variable viewCount that will be passed down to the component as a prop DONE
  * 2. Shallowly render ViewCount component, passing viewCount as a prop and store it in a 
- *    variable called wrapper.
+ *    variable called wrapper. DONE
  * 3. Find the wrapper's element's text with the class of .view-count and assert that it 
  *    is equal to `0 views`
  *
@@ -21,9 +21,16 @@ import ViewCount from '../../../client/components/ViewCount'
  * https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md
  */
 
+
 it(`should render a node element with text of '0 views'`, () => {
+	var viewCount = 0;
+	const wrapper = shallow(<ViewCount viewCount={viewCount} />);
+	expect(wrapper.find('.view-count').text()).toEqual('0 views');
 })
 
 it(`should render a node element with text of '1 view'`, () => {
+	var viewCount = 1;
+	const wrapper = shallow(<ViewCount viewCount={viewCount} />);
+	expect(wrapper.find('.view-count').text()).toEqual('1 view');
 })
 

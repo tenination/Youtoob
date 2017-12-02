@@ -77,18 +77,6 @@ test('Register endpoint should create a user', (done) => {
     
   })
 
-// test('register endpoint should create a user', () => {
-//   return api.instance().post('/register', testUser)
-//     .then(api.extractData)
-//     .then((newUser) => {
-//       expect(newUser).toEqual({
-//         _id: expect.any(String),
-//         username: testUser.username,
-//         token: expect.stringMatching(JWT_REGEX)
-//       })
-//     })
-// })
-
 
 test('Login endpoint should login a user', (done) => {
   var user = new User(testUser)
