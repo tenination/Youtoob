@@ -78,7 +78,7 @@ complicate things and get in the way.*
 ### Unit Testing
 - [X] Open `__tests__/utils/qu eryStringToObject.test.js`, read the instructions and write some tests!
 - [X] Open `__tests__/server/models/video.test.js`, read the instructions and write some tests!
-- [ ] Open `__tests__/utils/api.test.js`, read the instructions and write some tests!
+- [X] Open `__tests__/utils/api.test.js`, read the instructions and write some tests!
     
 ### Integration Testing
 - [ ] Open `__tests__/server/routes/users.test.js`, read the instructions and write some tests!

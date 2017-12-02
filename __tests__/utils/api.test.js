@@ -84,16 +84,16 @@ test('simulate successful login', () => {
 
 })
 
-// test('simulate failed login', () => {
-//   let loginEndpoint = nock(host)
-//     .post('/api/login')
-//     .reply(200, testUser);
+test('simulate failed login', () => {
+  let loginEndpoint = nock(host)
+    .post('/api/login')
+    .reply(400);
 
-//   return api.login().then((newUser) => {
-//     loginEndpoint.done() // (1.✓) Request to the endpoint is made!
-//     expect(localStorage.getItem('user')).toEqual(JSON.stringify(undefined)) // (3.✓) user is saved to localStorage
-//   }).catch((err)=>{
-//     console.log(err);
-//   });
-// })
+  return api.login(testUser).then((newUser) => {
+    
+  }).catch((err)=>{
+    loginEndpoint.done() // (1.✓) Request to the endpoint is made!
+    expect(localStorage.getItem('user')).toEqual(JSON.stringify(undefined)) // (3.✓) user is saved to localStorage
+  });
+})
 
